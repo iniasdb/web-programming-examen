@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oef 4</title>
+    <script src="square.js"></script>
+    <script>        
+        document.addEventListener("DOMContentLoaded",(event)=>{
+            let canvasWidth = 300;
+            let canvasHeight = 300;
+            let canvas = document.querySelector("canvas");
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+            let context = canvas.getContext("2d");
+
+            let square = new Square(canvas, 5, 20);
+
+            let gameRunning = true;
+
+            function Animate(){
+                context.clearRect(0,0,canvasWidth,canvasHeight);
+                context.fillStyle="black";
+                context.fillRect(0,0,canvasWidth,canvasHeight);
+                
+                square.Move();
+                square.CheckBoundaries();
+                
+                square.Draw();             
+
+                if (gameRunning) {
+                    setTimeout(Animate,33);
+                }
+            }
+
+            document.getElementById("start").addEventListener("click", () => {
+                gameRunning = true;
+                Animate();
+            });
+
+            document.getElementById("pauze").addEventListener("click", ()=>{
+                gameRunning = false;
+            })
+
+        });
+
+    </script>
+</head>
+<body>
+    <button id="start">start</button>
+    <button id="pauze">pauze</button>
+
+    <canvas></canvas>
+</body>
+</html>

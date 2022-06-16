@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="persoon.js"></script>
+</head>
+<body>
+
+    <script>
+        let p1 = new Persoon("Peeters", "Tom");
+      console.log(p1.fullName);
+      p1.voegTaalToe("Frans");
+      p1.voegTaalToe("Engels");
+      p1.voegTaalToe("Nederlands");
+
+      let p2 = new Persoon("Verhulst", "David");
+      console.log(p2.fullName);
+      p2.voegTaalToe("Frans");
+      p2.voegTaalToe("Spaans");
+      p2.voegTaalToe("Nederlands");
+
+      let p3 = new Persoon("De Vos", "Jeroen");
+      console.log(p3.fullName);
+      p3.voegTaalToe("Engels");
+      p3.voegTaalToe("Spaans");
+      p3.voegTaalToe("Nederlands");
+
+    let personen = [p1,p2,p3];
+
+
+
+    let zoekAllePersonenMetDezelfdeTaal = (taal, personen) => {
+        nieuweArray = []
+        personen.forEach(persoon => {
+            if (persoon.talen.includes(taal)) {
+                nieuweArray.push(persoon.fullName)
+            }
+        });
+        return nieuweArray;
+    }
+
+    let a = zoekAllePersonenMetDezelfdeTaal("Engels", personen);
+    console.log(a)
+    </script>
+    
+</body>
+</html>

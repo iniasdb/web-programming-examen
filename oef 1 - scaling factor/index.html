@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaling factor</title>
+    <style>
+        * {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+        <li>f</li>
+        <li>g</li>
+        <li>h</li>
+    </ul>
+
+    <script>
+
+        let scaleFontSize = (tag, factor) => {
+            elements = document.querySelectorAll(tag);
+            console.log(elements)
+
+            elements.forEach(element => {
+                console.log(element);
+                size = parseFloat(window.getComputedStyle(element).fontSize) *factor;
+                console.log(size);
+                element.style.fontSize = size + "px";
+            });
+        }
+
+        scaleFontSize("li", 5);
+
+    </script>
+    
+</body>
+</html>
